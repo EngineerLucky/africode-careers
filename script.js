@@ -8,7 +8,7 @@ function showApplicationForm(jobTitle, jobLocation, jobCompany) {
 
 function closeApplicationForm() {
     document.getElementById('applicationForm').style.display = 'none';
-    document.getElementById('jobList').style.display = 'flex';
+    document.getElementById('jobList').style.display = 'grid';
 }
 
 function submitApplication() {
