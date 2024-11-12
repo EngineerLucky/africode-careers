@@ -11,26 +11,14 @@
         <h1>Africode Careers - Find Your Programming Job</h1>
     </header>
 
-    <div class="search-bar">
-        <input type="text" id="keywordInput" placeholder="Search by keyword..." onkeyup="filterJobs()">
-        <select id="locationSelect" onchange="filterJobs()">
-            <option value="">Select location</option>
-            <option value="Remote">Remote</option>
-            <option value="Harare">Harare, Zimbabwe</option>
-            <option value="Cape Town">Cape Town, South Africa</option>
-            <option value="Nairobi">Nairobi, Kenya</option>
-            <option value="Lagos">Lagos, Nigeria</option>
-            <option value="Johannesburg">Johannesburg, South Africa</option>
-        </select>
-    </div>
-
-    <div class="job-list" id="jobList">
-        <!-- Job Cards Here -->
+    <!-- Job Listings -->
+    <div id="jobList" class="job-list">
+        <!-- Job Cards will be dynamically loaded here -->
     </div>
 
     <!-- Application Form (Initially Hidden) -->
     <div id="applicationForm" class="hidden">
-        <h2>Apply for <span id="jobTitle"></span></h2>
+        <h2>Apply for <span id="jobTitle"></span> - <span id="jobLocation"></span></h2>
         <form id="applicationFormDetails">
             <label for="applicantName">Full Name:</label><br>
             <input type="text" id="applicantName" name="applicantName" required><br><br>
