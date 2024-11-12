@@ -7,31 +7,36 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<!-- Login Form -->
-<div id="loginForm" style="display: block;">
-    <h2>Login to Access Jobs</h2>
-    <label for="email">Email:</label>
-    <input type="email" id="email" placeholder="Enter your email" required><br><br>
-    <label for="password">Password:</label>
-    <input type="password" id="password" placeholder="Enter your password" required><br><br>
-    <button id="loginButton">Login</button>
-    <p id="errorMessage" style="color: red; display: none;">Incorrect email or password. Please try again.</p>
-</div>
-
-    
-
-    <!-- Job Listings Page -->
-    <div id="jobPage" class="hidden">
-        <header>
-            <h1>Africode Careers - Find Your Programming Job</h1>
-        </header>
-        <div class="job-list" id="jobList">
-            <!-- Jobs will be populated here -->
-        </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Africode Careers - Programming Job Board</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Login Form -->
+    <div id="loginForm" style="display: block;">
+        <h2>Login to Access Jobs</h2>
+        <label for="email">Email:</label>
+        <input type="email" id="email" placeholder="Enter your email" required><br><br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" placeholder="Enter your password" required><br><br>
+        <button id="loginButton">Login</button>
+        <p id="errorMessage" style="color: red; display: none;">Incorrect email or password. Please try again.</p>
     </div>
 
-    <div id="applicationForm" class="hidden">
-        <!-- Application Form will show up when the apply button is clicked -->
+    <!-- Job Listings (Initially hidden) -->
+    <div id="jobListings" style="display: none;">
+        <!-- Your job cards go here -->
+        <div class="job-card">
+            <h2>Frontend Developer</h2>
+            <p>Location: Remote</p>
+            <p>Company: Africode Careers</p>
+            <button class="apply-btn">Apply Now</button>
+        </div>
+        <!-- Add more job cards here -->
     </div>
 
     <script src="script.js"></script>
