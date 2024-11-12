@@ -1,57 +1,39 @@
-const jobs = [
-    { title: 'Frontend Developer', location: 'Johannesburg', company: 'Africode Careers' },
-    { title: 'Backend Developer', location: 'Cape Town', company: 'Africode Careers' },
-    { title: 'Full Stack Developer', location: 'Remote', company: 'Africode Careers' },
-    { title: 'Data Scientist', location: 'Lusaka', company: 'Africode Careers' },
-    { title: 'DevOps Engineer', location: 'Harare', company: 'Africode Careers' },
-];
-
-function displayJobs() {
-    const jobList = document.getElementById('jobList');
-    jobList.innerHTML = '';
-    
-    jobs.forEach(job => {
-        const jobCard = document.createElement('div');
-        jobCard.classList.add('job-card');
-        
-        jobCard.innerHTML = `
-            <h2>${job.title}</h2>
-            <p>Location: ${job.location}</p>
-            <p>Company: ${job.company}</p>
-            <button>Apply Now</button>
-        `;
-        
-        jobList.appendChild(jobCard);
-    });
-}
-
+// Function to filter jobs by keyword and location
 function filterJobs() {
     const keywordInput = document.getElementById('keywordInput').value.toLowerCase();
     const locationSelect = document.getElementById('locationSelect').value;
+    const jobs = document.getElementsByClassName('job-card');
 
-    const filteredJobs = jobs.filter(job => {
-        const matchesKeyword = job.title.toLowerCase().includes(keywordInput);
-        const matchesLocation = !locationSelect || job.location === locationSelect;
-        return matchesKeyword && matchesLocation;
-    });
+    for (let i = 0; i < jobs.length; i++) {
+        const jobTitle = jobs[i].getAttribute('data-keyword').toLowerCase();
+        const jobLocation = jobs[i].getAttribute('data-location');
 
-    const jobList = document.getElementById('jobList');
-    jobList.innerHTML = '';
-    
-    filteredJobs.forEach(job => {
-        const jobCard = document.createElement('div');
-        jobCard.classList.add('job-card');
-        
-        jobCard.innerHTML = `
-            <h2>${job.title}</h2>
-            <p>Location: ${job.location}</p>
-            <p>Company: ${job.company}</p>
-            <button>Apply Now</button>
-        `;
-        
-        jobList.appendChild(jobCard);
-    });
+        if ((jobTitle.includes(keywordInput) || keywordInput === '') &&
+            (jobLocation === locationSelect || locationSelect === '')) {
+            jobs[i].style.display = 'block';
+        } else {
+            jobs[i].style.display = 'none';
+        }
+    }
 }
 
-// Initial display of all jobs
-displayJobs();
+// Function to open the application form and fill in job title and location
+function openApplicationForm(jobTitle, jobLocation) {
+    const applicationForm = document.getElementById('applicationForm');
+    document.getElementById('jobTitle').textContent = jobTitle;
+    document.getElementById('applicantLocation').value = jobLocation;
+    applicationForm.style.display = 'block';
+}
+
+// Function to close the application form
+function closeApplicationForm() {
+    const applicationForm = document.getElementById('applicationForm');
+    applicationForm.style.display = 'none';
+}
+
+// Event listener for form submission
+document.getElementById('applicationFormDetails').addEventListener('submit', function (e) {
+    e.preventDefault();
+    alert('Your application has been submitted successfully!');
+    document.getElementById('applicationForm').style.display = 'none';
+});
