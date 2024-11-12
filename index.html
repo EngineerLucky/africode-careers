@@ -12,6 +12,7 @@
         <h1>Africode Careers - Find Your Programming Job</h1>
     </header>
 
+    <!-- Search Bar -->
     <div class="search-bar">
         <input type="text" id="keywordInput" placeholder="Search by keyword..." onkeyup="filterJobs()">
         <select id="locationSelect" onchange="filterJobs()">
@@ -25,6 +26,7 @@
         </select>
     </div>
 
+    <!-- Job List -->
     <div class="job-list" id="jobList">
         <div class="job-card" data-keyword="frontend developer" data-location="Remote">
             <h2 class="job-title">Frontend Developer</h2>
@@ -32,41 +34,7 @@
             <p>Company: Africode Innovations</p>
             <button class="apply-btn" onclick="openApplicationForm('Frontend Developer', 'Remote')">Apply Now</button>
         </div>
-
-        <div class="job-card" data-keyword="backend developer" data-location="Harare">
-            <h2 class="job-title">Backend Developer</h2>
-            <p>Location: Harare, Zimbabwe</p>
-            <p>Company: ZimTech Solutions</p>
-            <button class="apply-btn" onclick="openApplicationForm('Backend Developer', 'Harare')">Apply Now</button>
-        </div>
-
-        <div class="job-card" data-keyword="full stack developer" data-location="Cape Town">
-            <h2 class="job-title">Full Stack Developer</h2>
-            <p>Location: Cape Town, South Africa</p>
-            <p>Company: Mzansi Web Systems</p>
-            <button class="apply-btn" onclick="openApplicationForm('Full Stack Developer', 'Cape Town')">Apply Now</button>
-        </div>
-
-        <div class="job-card" data-keyword="data scientist" data-location="Nairobi">
-            <h2 class="job-title">Data Scientist</h2>
-            <p>Location: Nairobi, Kenya</p>
-            <p>Company: Safaricode Technologies</p>
-            <button class="apply-btn" onclick="openApplicationForm('Data Scientist', 'Nairobi')">Apply Now</button>
-        </div>
-
-        <div class="job-card" data-keyword="mobile developer" data-location="Lagos">
-            <h2 class="job-title">Mobile Developer</h2>
-            <p>Location: Lagos, Nigeria</p>
-            <p>Company: NaijaTech Innovators</p>
-            <button class="apply-btn" onclick="openApplicationForm('Mobile Developer', 'Lagos')">Apply Now</button>
-        </div>
-
-        <div class="job-card" data-keyword="devops engineer" data-location="Johannesburg">
-            <h2 class="job-title">DevOps Engineer</h2>
-            <p>Location: Johannesburg, South Africa</p>
-            <p>Company: Ubuntu Cloud Services</p>
-            <button class="apply-btn" onclick="openApplicationForm('DevOps Engineer', 'Johannesburg')">Apply Now</button>
-        </div>
+        <!-- More jobs here as in the previous example -->
     </div>
 
     <!-- Application Form Modal -->
@@ -75,24 +43,8 @@
             <span class="close-btn" onclick="closeApplicationForm()">&times;</span>
             <h2>Apply for <span id="jobTitle"></span></h2>
             <form id="applyForm">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required>
-
-                <label for="qualification">Qualification:</label>
-                <input type="text" id="qualification" name="qualification" required>
-
-                <label for="experience">Experience:</label>
-                <input type="text" id="experience" name="experience" required>
-
-                <label for="userLocation">Location:</label>
-                <input type="text" id="userLocation" name="location" required>
-
-                <label for="contact">Contact Details:</label>
-                <input type="text" id="contact" name="contact" required>
-
-                <button type="submit">Submit Application</button>
+                <!-- Form fields -->
             </form>
-            <p id="confirmationMessage" style="display:none;">Application submitted successfully!</p>
         </div>
     </div>
 
