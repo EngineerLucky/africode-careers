@@ -1,12 +1,15 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    background-image: url();
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     margin: 0;
     padding: 0;
 }
 
 header {
-    background-color: #4CAF50;
+    background-color: rgba(76, 175, 80, 0.9); /* Semi-transparent green */
     color: white;
     padding: 20px;
     text-align: center;
@@ -15,6 +18,10 @@ header {
 .search-bar {
     text-align: center;
     margin: 20px 0;
+    background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent background for visibility */
+    padding: 15px;
+    border-radius: 8px;
+    display: inline-block;
 }
 
 input[type="text"], select {
@@ -37,10 +44,11 @@ button {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    padding: 20px;
 }
 
 .job-card {
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white for readability */
     padding: 20px;
     margin: 10px;
     border-radius: 8px;
@@ -52,4 +60,3 @@ button {
 .job-card h2 {
     color: #333;
 }
-
