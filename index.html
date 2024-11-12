@@ -7,43 +7,34 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <h1>Africode Careers - Find Your Programming Job</h1>
-    </header>
-
-    <!-- Job Listings -->
-    <div id="jobList" class="job-list">
-        <!-- Job Cards will be dynamically loaded here -->
+    <!-- Login Form -->
+    <div id="loginForm">
+        <header>
+            <h1>Africode Careers - Login</h1>
+        </header>
+        <div class="form-container">
+            <form id="loginFormContent" onsubmit="login(event)">
+                <input type="email" id="email" placeholder="Email" required />
+                <input type="password" id="password" placeholder="Password" required minlength="5" />
+                <button type="submit">Login</button>
+            </form>
+        </div>
     </div>
 
-    <!-- Application Form (Initially Hidden) -->
+    <!-- Job Listings Page -->
+    <div id="jobPage" class="hidden">
+        <header>
+            <h1>Africode Careers - Find Your Programming Job</h1>
+        </header>
+        <div class="job-list" id="jobList">
+            <!-- Jobs will be populated here -->
+        </div>
+    </div>
+
     <div id="applicationForm" class="hidden">
-        <h2>Apply for <span id="jobTitle"></span> - <span id="jobLocation"></span></h2>
-        <form id="applicationFormDetails">
-            <label for="applicantName">Full Name:</label><br>
-            <input type="text" id="applicantName" name="applicantName" required><br><br>
-            
-            <label for="applicantEmail">Email:</label><br>
-            <input type="email" id="applicantEmail" name="applicantEmail" required><br><br>
-            
-            <label for="applicantLocation">Location:</label><br>
-            <input type="text" id="applicantLocation" name="applicantLocation" required><br><br>
-            
-            <label for="applicantQualification">Qualification:</label><br>
-            <input type="text" id="applicantQualification" name="applicantQualification" required><br><br>
-            
-            <label for="applicantExperience">Experience:</label><br>
-            <input type="text" id="applicantExperience" name="applicantExperience" required><br><br>
-
-            <label for="contactDetails">Contact Details:</label><br>
-            <input type="text" id="contactDetails" name="contactDetails" required><br><br>
-
-            <button type="submit">Submit Application</button>
-        </form>
-        <button onclick="closeApplicationForm()">Close</button>
+        <!-- Application Form will show up when the apply button is clicked -->
     </div>
 
-    <!-- Link to JavaScript file -->
     <script src="script.js"></script>
 </body>
 </html>
