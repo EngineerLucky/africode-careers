@@ -24,3 +24,6 @@ function openApplicationForm(jobTitle, jobLocation) {
     document.getElementById('applicantLocation').value = jobLocation;
     applicationForm.style.display = 'block';
 }
+
+// Event listener for form submission
+document.getElementBy
