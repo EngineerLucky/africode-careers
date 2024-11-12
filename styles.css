@@ -3,8 +3,9 @@ body {
     margin: 0;
     padding: 0;
     background-color: #f4f4f4;
-    background-image: url('https://github.com/EngineerLucky/africode-careers/blob/new-tok/Screenshot_12-11-2024_153351_assets.rappler.com.jpeg');
+    background-image: url('https://raw.githubusercontent.com/EngineerLucky/africode-careers/new-tok/Screenshot_12-11-2024_153351_assets.rappler.com.jpeg');
     background-size: cover;
+    background-position: center;
     background-repeat: no-repeat;
 }
 
