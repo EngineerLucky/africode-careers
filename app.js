@@ -1,3 +1,39 @@
+// Hardcoded credentials
+const validEmail = "user@example.com";
+const validPassword = "12345";
+
+// Check if the user is logged in by checking localStorage
+if (localStorage.getItem("loggedIn") === "true") {
+    showJobListings(); // If logged in, show job listings
+} else {
+    showLoginForm(); // Show login form
+}
+
+document.getElementById("loginButton").addEventListener("click", function() {
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+
+    // Check login credentials
+    if (email === validEmail && password === validPassword) {
+        localStorage.setItem("loggedIn", "true");
+        showJobListings(); // If credentials are correct, show the jobs
+    } else {
+        document.getElementById("errorMessage").style.display = "block"; // Show error message if credentials are wrong
+    }
+});
+
+// Function to show the job listings after a successful login
+function showJobListings() {
+    document.getElementById("loginForm").style.display = "none"; // Hide login form
+    document.getElementById("jobListings").style.display = "block"; // Show job listings
+}
+
+// Function to show the login form
+function showLoginForm() {
+    document.getElementById("loginForm").style.display = "block"; // Show login form
+    document.getElementById("jobListings").style.display = "none"; // Hide job listings
+}
+
 // Function to filter jobs by keyword and location
 function filterJobs() {
     const keywordInput = document.getElementById('keywordInput').value.toLowerCase();
