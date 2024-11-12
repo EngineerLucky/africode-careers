@@ -1,27 +1,30 @@
-function showApplicationForm(jobTitle, jobLocation, jobCompany) {
-    document.getElementById('jobTitle').innerText = jobTitle;
-    document.getElementById('jobLocation').innerText = jobLocation;
-    document.getElementById('jobCompany').innerText = jobCompany;
+function openApplicationForm() {
     document.getElementById('applicationForm').style.display = 'block';
-    document.getElementById('jobList').style.display = 'none';
 }
 
 function closeApplicationForm() {
     document.getElementById('applicationForm').style.display = 'none';
-    document.getElementById('jobList').style.display = 'grid';
+}
+
+function filterJobs() {
+    const keywordInput = document.getElementById('keywordInput').value.toLowerCase();
+    const locationSelect = document.getElementById('locationSelect').value;
+    const jobs = document.getElementsByClassName('job-card');
+
+    for (let i = 0; i < jobs.length; i++) {
+        const jobTitle = jobs[i].getAttribute('data-keyword').toLowerCase();
+        const jobLocation = jobs[i].getAttribute('data-location');
+
+        if ((jobTitle.includes(keywordInput) || keywordInput === '') &&
+            (jobLocation === locationSelect || locationSelect === '')) {
+            jobs[i].style.display = 'block';
+        } else {
+            jobs[i].style.display = 'none';
+        }
+    }
 }
 
 function submitApplication() {
-    const name = document.getElementById('name').value;
-    const qualification = document.getElementById('qualification').value;
-    const experience = document.getElementById('experience').value;
-    const location = document.getElementById('applicantLocation').value;
-    const contact = document.getElementById('contact').value;
-
-    if (name && qualification && experience && location && contact) {
-        alert('Your application has been submitted!');
-        closeApplicationForm();
-    } else {
-        alert('Please fill in all fields.');
-    }
+    alert('Your application has been submitted!');
+    closeApplicationForm();
 }
