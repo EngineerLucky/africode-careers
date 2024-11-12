@@ -7,19 +7,18 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Login Form -->
-    <div id="loginForm">
-        <header>
-            <h1>Africode Careers - Login</h1>
-        </header>
-        <div class="form-container">
-            <form id="loginFormContent" onsubmit="login(event)">
-                <input type="email" id="email" placeholder="Email" required />
-                <input type="password" id="password" placeholder="Password" required minlength="5" />
-                <button type="submit">Login</button>
-            </form>
-        </div>
-    </div>
+<!-- Login Form -->
+<div id="loginForm" style="display: block;">
+    <h2>Login to Access Jobs</h2>
+    <label for="email">Email:</label>
+    <input type="email" id="email" placeholder="Enter your email" required><br><br>
+    <label for="password">Password:</label>
+    <input type="password" id="password" placeholder="Enter your password" required><br><br>
+    <button id="loginButton">Login</button>
+    <p id="errorMessage" style="color: red; display: none;">Incorrect email or password. Please try again.</p>
+</div>
+
+    
 
     <!-- Job Listings Page -->
     <div id="jobPage" class="hidden">
