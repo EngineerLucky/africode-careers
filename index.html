@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Africode Careers - Programming Job Board</title>
-    <link rel="stylesheet" href="style.css"> <!-- Link to the CSS file -->
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
@@ -12,76 +12,86 @@
         <h1>Africode Careers - Find Your Programming Job</h1>
     </header>
 
+    <div class="search-bar">
+        <input type="text" id="keywordInput" placeholder="Search by keyword..." onkeyup="filterJobs()">
+        <select id="locationSelect" onchange="filterJobs()">
+            <option value="">Select location</option>
+            <option value="Harare">Harare</option>
+            <option value="Cape Town">Cape Town</option>
+            <option value="Johannesburg">Johannesburg</option>
+            <option value="Lusaka">Lusaka</option>
+            <option value="Maputo">Maputo</option>
+            <option value="Gaborone">Gaborone</option>
+        </select>
+    </div>
+
     <div class="job-list" id="jobList">
         <div class="job-card" data-keyword="frontend developer" data-location="Harare">
             <h2 class="job-title">Frontend Developer</h2>
-            <p>Location: Harare, Zimbabwe</p>
-            <p>Company: Zimtech Innovations</p>
-            <button class="apply-btn" onclick="showApplicationForm('Frontend Developer', 'Harare, Zimbabwe', 'Zimtech Innovations')">Apply Now</button>
+            <p>Location: Harare</p>
+            <p>Company: Umoja Technologies</p>
+            <button class="apply-btn" onclick="openApplicationForm()">Apply Now</button>
         </div>
 
         <div class="job-card" data-keyword="backend developer" data-location="Cape Town">
             <h2 class="job-title">Backend Developer</h2>
-            <p>Location: Cape Town, South Africa</p>
-            <p>Company: CapeCode Solutions</p>
-            <button class="apply-btn" onclick="showApplicationForm('Backend Developer', 'Cape Town, South Africa', 'CapeCode Solutions')">Apply Now</button>
+            <p>Location: Cape Town</p>
+            <p>Company: Zambezi Software</p>
+            <button class="apply-btn" onclick="openApplicationForm()">Apply Now</button>
         </div>
 
-        <div class="job-card" data-keyword="full stack developer" data-location="Lusaka">
+        <div class="job-card" data-keyword="full stack developer" data-location="Johannesburg">
             <h2 class="job-title">Full Stack Developer</h2>
-            <p>Location: Lusaka, Zambia</p>
-            <p>Company: ZamTech Hub</p>
-            <button class="apply-btn" onclick="showApplicationForm('Full Stack Developer', 'Lusaka, Zambia', 'ZamTech Hub')">Apply Now</button>
+            <p>Location: Johannesburg</p>
+            <p>Company: Ubuntu Labs</p>
+            <button class="apply-btn" onclick="openApplicationForm()">Apply Now</button>
         </div>
 
-        <div class="job-card" data-keyword="data scientist" data-location="Johannesburg">
+        <div class="job-card" data-keyword="data scientist" data-location="Lusaka">
             <h2 class="job-title">Data Scientist</h2>
-            <p>Location: Johannesburg, South Africa</p>
-            <p>Company: DataDrive Africa</p>
-            <button class="apply-btn" onclick="showApplicationForm('Data Scientist', 'Johannesburg, South Africa', 'DataDrive Africa')">Apply Now</button>
+            <p>Location: Lusaka</p>
+            <p>Company: African Data Corp</p>
+            <button class="apply-btn" onclick="openApplicationForm()">Apply Now</button>
         </div>
 
-        <div class="job-card" data-keyword="mobile developer" data-location="Nairobi">
-            <h2 class="job-title">Mobile Developer</h2>
-            <p>Location: Nairobi, Kenya</p>
-            <p>Company: Safaritech</p>
-            <button class="apply-btn" onclick="showApplicationForm('Mobile Developer', 'Nairobi, Kenya', 'Safaritech')">Apply Now</button>
+        <div class="job-card" data-keyword="mobile app developer" data-location="Maputo">
+            <h2 class="job-title">Mobile App Developer</h2>
+            <p>Location: Maputo</p>
+            <p>Company: Xikomi Solutions</p>
+            <button class="apply-btn" onclick="openApplicationForm()">Apply Now</button>
         </div>
 
-        <div class="job-card" data-keyword="devops engineer" data-location="Lagos">
-            <h2 class="job-title">DevOps Engineer</h2>
-            <p>Location: Lagos, Nigeria</p>
-            <p>Company: NaijaCloud</p>
-            <button class="apply-btn" onclick="showApplicationForm('DevOps Engineer', 'Lagos, Nigeria', 'NaijaCloud')">Apply Now</button>
+        <div class="job-card" data-keyword="UI/UX designer" data-location="Gaborone">
+            <h2 class="job-title">UI/UX Designer</h2>
+            <p>Location: Gaborone</p>
+            <p>Company: Motse Creatives</p>
+            <button class="apply-btn" onclick="openApplicationForm()">Apply Now</button>
         </div>
     </div>
 
-    <!-- Application Form -->
-    <div id="applicationForm" style="display: none;">
-        <h2>Apply for <span id="jobTitle"></span></h2>
-        <p>Company: <span id="jobCompany"></span></p>
-        <p>Location: <span id="jobLocation"></span></p>
-        <form id="application-form">
-            <label for="name">Name:</label>
-            <input type="text" id="name" required><br><br>
+    <div id="applicationForm" class="application-form">
+        <h2>Job Application Form</h2>
+        <form>
+            <label for="name">Full Name:</label>
+            <input type="text" id="name" required>
 
             <label for="qualification">Qualification:</label>
-            <input type="text" id="qualification" required><br><br>
+            <input type="text" id="qualification" required>
 
-            <label for="experience">Experience:</label>
-            <input type="text" id="experience" required><br><br>
+            <label for="experience">Experience (years):</label>
+            <input type="number" id="experience" required>
 
             <label for="location">Your Location:</label>
-            <input type="text" id="applicantLocation" required><br><br>
+            <input type="text" id="applicantLocation" required>
 
             <label for="contact">Contact Details:</label>
-            <input type="text" id="contact" required><br><br>
+            <input type="text" id="contact" required>
 
-            <button type="button" onclick="submitApplication()">Submit Application</button>
+            <button type="submit" onclick="submitApplication()">Submit Application</button>
             <button type="button" onclick="closeApplicationForm()">Close</button>
         </form>
     </div>
 
-    <script src="script.js"></script> <!-- Link to the JavaScript file -->
+    <script src="script.js"></script>
 </body>
 </html>
