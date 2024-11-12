@@ -4,7 +4,71 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Africode Careers - Programming Job Board</title>
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            background-image: url('https://github.com/EngineerLucky/africode-careers/blob/new-tok/Screenshot_12-11-2024_153351_assets.rappler.com.jpeg?raw=true');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+        }
+        h1 {
+            margin: 0;
+        }
+        .search-bar {
+            text-align: center;
+            margin: 2rem;
+        }
+        input[type="text"] {
+            padding: 0.5rem;
+            margin-right: 1rem;
+            width: 200px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        select {
+            padding: 0.5rem;
+            width: 220px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .job-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+        .job-card {
+            background-color: white;
+            margin: 1rem;
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            width: 300px;
+        }
+        .job-title {
+            font-size: 1.2rem;
+            color: #333;
+        }
+        .apply-btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 0.5rem;
+            text-align: center;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
 
@@ -12,7 +76,6 @@
         <h1>Africode Careers - Find Your Programming Job</h1>
     </header>
 
-    <!-- Search Bar -->
     <div class="search-bar">
         <input type="text" id="keywordInput" placeholder="Search by keyword..." onkeyup="filterJobs()">
         <select id="locationSelect" onchange="filterJobs()">
@@ -26,29 +89,48 @@
         </select>
     </div>
 
-    <!-- Job List -->
     <div class="job-list" id="jobList">
         <div class="job-card" data-keyword="frontend developer" data-location="Remote">
             <h2 class="job-title">Frontend Developer</h2>
             <p>Location: Remote</p>
-            <p>Company: Africode Innovations</p>
-            <button class="apply-btn" onclick="openApplicationForm('Frontend Developer', 'Remote')">Apply Now</button>
+            <p>Company: Africode Careers</p>
+            <button class="apply-btn">Apply Now</button>
         </div>
-        <!-- More jobs here as in the previous example -->
+
+        <div class="job-card" data-keyword="backend developer" data-location="San Francisco">
+            <h2 class="job-title">Backend Developer</h2>
+            <p>Location: San Francisco, CA</p>
+            <p>Company: Africode Careers</p>
+            <button class="apply-btn">Apply Now</button>
+        </div>
+
+        <div class="job-card" data-keyword="full stack developer" data-location="New York">
+            <h2 class="job-title">Full Stack Developer</h2>
+            <p>Location: New York, NY</p>
+            <p>Company: Africode Careers</p>
+            <button class="apply-btn">Apply Now</button>
+        </div>
     </div>
 
-    <!-- Application Form Modal -->
-    <div id="applicationForm" class="modal">
-        <div class="modal-content">
-            <span class="close-btn" onclick="closeApplicationForm()">&times;</span>
-            <h2>Apply for <span id="jobTitle"></span></h2>
-            <form id="applyForm">
-                <!-- Form fields -->
-            </form>
-        </div>
-    </div>
+    <script>
+        function filterJobs() {
+            const keywordInput = document.getElementById('keywordInput').value.toLowerCase();
+            const locationSelect = document.getElementById('locationSelect').value;
+            const jobs = document.getElementsByClassName('job-card');
 
-    <script src="app.js"></script>
+            for (let i = 0; i < jobs.length; i++) {
+                const jobTitle = jobs[i].getAttribute('data-keyword').toLowerCase();
+                const jobLocation = jobs[i].getAttribute('data-location');
+
+                if ((jobTitle.includes(keywordInput) || keywordInput === '') &&
+                    (jobLocation === locationSelect || locationSelect === '')) {
+                    jobs[i].style.display = 'block';
+                } else {
+                    jobs[i].style.display = 'none';
+                }
+            }
+        }
+    </script>
 
 </body>
 </html>
