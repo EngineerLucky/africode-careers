@@ -3,30 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Africode Careers - Tech Job Board</title>
+    <title>Africode Careers - Programming Job Board</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
     <header>
-        <h1>Africode Careers - Find Your Dream Tech Job</h1>
+        <h1>Africode Careers - Find Your Programming Job</h1>
     </header>
 
     <div class="search-bar">
-        <input type="text" id="keywordInput" placeholder="Search by keyword...">
-        <select id="locationSelect">
+        <input type="text" id="keywordInput" placeholder="Search by keyword..." onkeyup="filterJobs()">
+        <select id="locationSelect" onchange="filterJobs()">
             <option value="">Select location</option>
             <option value="Remote">Remote</option>
-            <option value="Johannesburg">Johannesburg</option>
-            <option value="Cape Town">Cape Town</option>
-            <option value="Lusaka">Lusaka</option>
-            <option value="Harare">Harare</option>
+            <option value="Harare">Harare, Zimbabwe</option>
+            <option value="Cape Town">Cape Town, South Africa</option>
         </select>
-        <button onclick="filterJobs()">Search</button>
     </div>
 
-    <div id="jobList" class="job-list"></div>
+    <div class="job-list" id="jobList">
+        <div class="job-card" data-keyword="frontend developer" data-location="Remote">
+            <h2 class="job-title">Frontend Developer</h2>
+            <p>Location: Remote</p>
+            <p>Company: Africode Careers</p>
+            <button class="apply-btn" onclick="openApplicationForm('Frontend Developer', 'Remote')">Apply Now</button>
+        </div>
 
-    <script src="script.js"></script>
+        <div class="job-card" data-keyword="backend developer" data-location="Harare">
+            <h2 class="job-title">Backend Developer</h2>
+            <p>Location: Harare, Zimbabwe</p>
+            <p>Company: Africode Careers</p>
+            <button class="apply-btn" onclick="openApplicationForm('Backend Developer', 'Harare')">Apply Now</button>
+        </div>
+
+        <div class="job-card" data-keyword="full stack developer" data-location="Cape Town">
+            <h2 class="job-title">Full Stack Developer</h2>
+            <p>Location: Cape Town, South Africa</p>
+            <p>Company: Africode Careers</p>
+            <button class="apply-btn" onclick="openApplicationForm('Full Stack Developer', 'Cape Town')">Apply Now</button>
+        </div>
+    </div>
+
+    <!-- Application Form Modal -->
+    <div id="applicationForm" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeApplicationForm()">&times;</span>
+            <h2>Apply for <span id="jobTitle"></span></h2>
+            <form id="applyForm">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="qualification">Qualification:</label>
+                <input type="text" id="qualification" name="qualification" required>
+
+                <label for="experience">Experience:</label>
+                <input type="text" id="experience" name="experience" required>
+
+                <label for="userLocation">Location:</label>
+                <input type="text" id="userLocation" name="location" required>
+
+                <button type="submit">Submit Application</button>
+            </form>
+            <p id="confirmationMessage" style="display:none;">Application submitted successfully!</p>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+
 </body>
 </html>
+
 
